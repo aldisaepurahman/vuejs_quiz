@@ -19,7 +19,7 @@
 <script>
 export default {
   name: 'Soal',
-  data() {
+  data () {
     return {
       nilai: 0,
       rightAnswers: [],
@@ -124,32 +124,29 @@ export default {
             ['22'],
             ['19', true]
           ]
-        },
+        }
       ]
     }
   },
   methods: {
-    AddNilai() {
-      this.nilai += 10
-    },
-    check(index, indeks) {
+    check (index, indeks) {
       if (this.pertanyaan[index].answers[indeks][1]) {
-        if (this.rightAnswers.indexOf(index) == -1) {
-          this.rightAnswers.push(index);
+        if (this.rightAnswers.indexOf(index) === -1) {
+          this.rightAnswers.push(index)
         }
-        if (this.wrongAnswers.indexOf(index) != -1) {
-          this.wrongAnswers.splice(this.wrongAnswers.indexOf(index), 1);
+        if (this.wrongAnswers.indexOf(index) !== -1) {
+          this.wrongAnswers.splice(this.wrongAnswers.indexOf(index), 1)
         }
-      }else {
-        if (this.rightAnswers.indexOf(index) != -1) {
-          this.rightAnswers.splice(this.rightAnswers.indexOf(index), 1);
-          this.wrongAnswers.push(index);
-        }else {
-          this.wrongAnswers.push(index);
+      } else {
+        if (this.rightAnswers.indexOf(index) !== -1) {
+          this.rightAnswers.splice(this.rightAnswers.indexOf(index), 1)
+          this.wrongAnswers.push(index)
+        } else {
+          this.wrongAnswers.push(index)
         }
       }
 
-      this.nilai = this.rightAnswers.length * 10;
+      this.nilai = this.rightAnswers.length * 10
     }
   }
 }
